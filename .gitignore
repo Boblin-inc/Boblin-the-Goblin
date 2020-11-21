@@ -5,6 +5,7 @@ boblin/data/keys.json
 
 # Byte-compiled / optimized / DLL files
 boblin/Cogs/__pycache__/
+boblin/__pycache__/
 *.py[cod]
 *$py.class
 
