@@ -59,6 +59,11 @@ class owner(commands.Cog):
 
         os.remove('git_pull_log')
 
+    @commands.command(name="eval")
+    @commands.is_owner()
+    async def eval_message(self, ctx, *, msg):
+        await ctx.send(f"{await eval(msg)}\uFEFF")
+
 
 
 
