@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import os
 
 bot = commands.Bot(command_prefix='d!')
 
@@ -47,6 +48,16 @@ class owner(commands.Cog):
         elif cog == "owner" or cog == "events" or "main":
             self.bot.reload_extension('Cogs.' + cog)
             await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Reloaded "Cogs.{cog}"'))
+
+    @commands.command(name='gitpull')
+    @commands.is_owner()
+    async def git_pull(self, ctx):
+        os.system('git pull > git_pull_log 2>&1')
+
+        with open('git_pull_log', 'r') as log_file:
+            await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'```{log_file.read()}```'))
+
+        os.remove('git_pull_log')
 
 
 
