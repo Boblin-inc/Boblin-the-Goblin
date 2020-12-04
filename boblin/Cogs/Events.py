@@ -15,7 +15,7 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        channel = get(member.guild.channels, name='join-leave')
+        channel = get(member.guild.channels(745465900584534056))
         await channel.send(f'Sup {member.mention}, welcome to BoblinTown!')
 
     @commands.Cog.listener()

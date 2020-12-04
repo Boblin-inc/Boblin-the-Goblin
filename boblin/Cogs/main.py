@@ -1,13 +1,19 @@
 import discord
 from discord.ext import commands
+from discord.utils import get
 from disputils import BotEmbedPaginator, BotConfirmation, BotMultipleChoice
 import classyjson as cj
+import arrow
+import random
+from random import randint
 
 bot = commands.Bot(command_prefix="d!")
 
 class main(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+
+        self.g = arrow.utcnow()
 
     @commands.command(name='race')
     async def race(self, ctx, *, race = 'All'):
@@ -83,6 +89,34 @@ class main(commands.Cog):
         invembed.set_footer(text='Boblin the Goblin#4746')
 
         await ctx.send(embed=invembed)
+
+    @commands.command(name='ping', aliases=["latency", "pong"])
+    async def ping(self, ctx):
+
+        pong = round(self.bot.latency * 1000, 2)
+
+        embed = discord.Embed(color=discord.Color.green(), description=f'`Current ping: {pong} ms`')
+
+        embed.set_author(name="Pong!")
+
+        embed.set_footer(text='Boblin the Goblin#4746')
+
+        await ctx.send(embed=embed)
+
+
+    @commands.command(name='roll',help='Rolls dice',pass_context = True)
+    async def roll(self,ctx,numofdice_d_numofsides=None):
+        if numofdice_d_numofsides is None:
+            await ctx.send(embed=discord.Embed(color=discord.Color.green(), description='You are missing arguments: `number of dice`, `number of sides`!'))
+        else:
+            rolling = []
+
+            try:
+                for x in range(int(numofdice_d_numofsides.split('d')[0])):
+                    rolling.append(randint(1,int(numofdice_d_numofsides.split('d')[1])))
+                await  ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'You rolled {", ".join(str(x) for x in rolling)} which has a total'f' of {sum(rolling)}'))
+            except IndexError as err:
+                await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Your argument must be put together (for example: `3d20` as opposed to `3 d20`)'))
 
 
 
