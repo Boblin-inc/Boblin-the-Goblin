@@ -17,17 +17,9 @@ class Events(commands.Cog):
         activity = discord.Game(name="D&D 5e", type=3)
         await self.bot.change_presence(status=discord.Status.do_not_disturb, activity=activity)
 
-    @commands.Cog.listener()
-    async def on_member_join(self, member):
-        channel = get(member.guild.channels(745465900584534056))
-        await channel.send(f'Sup {member.mention}, welcome to BoblinTown!')
 
-    @commands.Cog.listener()
-    async def on_member_remove(self, member):
-        channel = get(member.guild.channels, name='join-leave')
-        await channel.send(f'Thanks for visiting BoblinTown, {member.mention} ({member}), come again soon!')
 
-    
+
 
 
 def setup(bot):
