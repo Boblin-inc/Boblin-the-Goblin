@@ -1,6 +1,10 @@
 import discord
 from discord.ext import commands
 import os
+import sqlite3
+from sqlite3 import Error
+conn = sqlite3.connect(r'C:\Users\trey\Documents\atom projects\Bots\Boblin-the-Goblin\boblin\data\boblindata.db')
+c = conn.cursor()
 
 bot = commands.Bot(command_prefix='d!')
 
@@ -78,6 +82,46 @@ class owner(commands.Cog):
             await ctx.send(f"{await eval(msg)}\uFEFF")
         except Exception as err:
             await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Uh oh! I ran into an error trying to run this command:\n`{err}`'))
+
+
+    @commands.command(name='log')
+    @commands.is_owner()
+    async def log(self, ctx, *, msg = None):
+        if msg == None:
+            await ctx.send(embed=discord.Embed(color=discord.Color.green(), description='You need to provide a message to log!'))
+        else:
+            message = f"""INSERT INTO logs
+            (id)
+            VALUES
+            ('{msg}')"""
+            c.execute(message)
+            conn.commit()
+            await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Message `{msg}` logged.'))
+
+    @commands.command(name='fetch')
+    @commands.is_owner()
+    async def fetch(self, ctx, msg = None):
+        try:
+            if msg == None or msg == 'all':
+                ret = f"""SELECT * FROM logs"""
+
+                c.execute(ret)
+
+                rows = c.fetchall()
+
+                await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'{rows}'))
+
+            else:
+                ret = f"""SELECT * FROM logs"""
+
+                c.execute(ret)
+
+                rows = c.fetchall()
+
+                await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'{rows[int(msg)]}'))
+        except Error as err:
+            await ctx.send(embed=discord.Embed(color=discord.Color.green(), description='Uh oh! Something went wrong!'))
+
 
 
 

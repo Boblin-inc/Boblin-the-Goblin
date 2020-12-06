@@ -1,6 +1,10 @@
 import discord
 from discord.ext import commands
 from discord.utils import get
+import sqlite3
+from sqlite3 import Error
+conn = sqlite3.connect(r'C:\Users\trey\Documents\atom projects\Bots\Boblin-the-Goblin\boblin\data\boblindata.db')
+c = conn.cursor()
 
 bot = commands.Bot(command_prefix="d!")
 
@@ -22,6 +26,9 @@ class Events(commands.Cog):
     async def on_member_remove(self, member):
         channel = get(member.guild.channels, name='join-leave')
         await channel.send(f'Thanks for visiting BoblinTown, {member.mention} ({member}), come again soon!')
+
+    
+
 
 def setup(bot):
     bot.add_cog(Events(bot))

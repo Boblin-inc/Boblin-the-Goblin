@@ -6,14 +6,15 @@ import classyjson as cj
 import arrow
 import random
 from random import randint
-
+import sqlite3
+from sqlite3 import Error
+conn = sqlite3.connect(r'C:\Users\trey\Documents\atom projects\Bots\Boblin-the-Goblin\boblin\data\boblindata.db')
+c = conn.cursor()
 bot = commands.Bot(command_prefix="d!")
 
 class main(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-
-        self.g = arrow.utcnow()
 
     @commands.command(name='race')
     async def race(self, ctx, *, race = 'All'):
@@ -78,6 +79,9 @@ class main(commands.Cog):
                     break
 
                 await ctx.send(embed=embed)
+
+        elif race == 'game':
+            await ctx.send(embed=discord.Embed(color=discord.Color.green(), description='YOU JUST LOST THE GAME'))
 
 
     @commands.command(name='invite')
