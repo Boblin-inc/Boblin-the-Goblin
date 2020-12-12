@@ -84,13 +84,54 @@ class main(commands.Cog):
             await ctx.send(embed=discord.Embed(color=discord.Color.green(), description='YOU JUST LOST THE GAME'))
 
 
+    @commands.command(name='class')
+    async def classes(self, ctx, *, classes = 'All'):
+        classes = classes.lower()
+        if classes == 'all':
+            embeds = [
+            discord.Embed(title='Barbarian', color=discord.Color.green(), description='d!class barbarian'),
+            discord.Embed(title='Bard', color=discord.Color.green(), description='d!class bard'),
+            discord.Embed(title='Cleric', color=discord.Color.green(), description='d!class cleric'),
+            discord.Embed(title='Druid', color=discord.Color.green(), description='d!class druid'),
+            discord.Embed(title='Fighter', color=discord.Color.green(), description='d!class fighter'),
+            discord.Embed(title='Monk', color=discord.Color.green(), description='d!class monk'),
+            discord.Embed(title='Paladin', color=discord.Color.green(), description='d!class paladin'),
+            discord.Embed(title='Ranger', color=discord.Color.green(), description='d!class ranger'),
+            discord.Embed(title='Rogue', color=discord.Color.green(), description='d!class rogue'),
+            discord.Embed(title='Sorcerer', color=discord.Color.green(), description='d!class sorcerer'),
+            discord.Embed(title='Warlock', color=discord.Color.green(), description='d!class warlock'),
+            discord.Embed(title='Wizard', color=discord.Color.green(), description='d!class wizard'),
+            discord.Embed(title='Artificer', color=discord.Color.green(), description='d!class artificer'),]
+
+            paginator = BotEmbedPaginator(ctx, embeds)
+            await paginator.run()
+
+        elif classes == 'barbarian' or classes == 'bard' or classes == 'cleric' or classes == 'druid' or classes == 'fighter' or classes == 'monk' or classes == 'paladin' or classes == 'ranger' or classes == 'rogue' or classes == 'sorcerer' or classes == 'warlock' or classes == 'wizard' or classes == 'artificer':
+            with open('data/classes.json') as classez:
+                classess = cj.load(classez)
+
+                embed=discord.Embed(color=discord.Color.green())
+
+                temp = []
+                for k, v in classess[classes].items():
+                    temp.append(str(k + ': ' + v))
+
+                val = '\n'.join(temp)
+
+                for key in classess.items():
+                    embed.add_field(name=classes, value=val)
+                    break
+
+                await ctx.send(embed=embed)
+
+
     @commands.command(name='invite')
     async def invite(self, ctx):
         invembed = discord.Embed(color=discord.Color.green(), description='[Click Here!](https://discord.com/api/oauth2/authorize?client_id=778773013352546354&permissions=1544027201&scope=bot)')
 
         invembed.set_author(name='Invite Boblin to your server!')
 
-        invembed.set_footer(text='Boblin the Goblin#4746')
+        invembed.set_footer(text='Boblin the Goblin#4756')
 
         await ctx.send(embed=invembed)
 

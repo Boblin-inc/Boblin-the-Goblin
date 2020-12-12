@@ -22,6 +22,7 @@ class owner(commands.Cog):
                 self.bot.load_extension('Cogs.owner')
                 self.bot.load_extension('Cogs.main')
                 self.bot.load_extension('Cogs.Events')
+                self.bot.load_extension("Cogs.help")
             elif cog == "owner" or cog == "events" or "main":
                 self.bot.load_extension('Cogs.' + cog)
                 await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Loaded "Cogs.{cog}"'))
@@ -39,6 +40,7 @@ class owner(commands.Cog):
                 self.bot.unload_extension('Cogs.owner')
                 self.bot.unload_extension('Cogs.main')
                 self.bot.unload_extension('Cogs.Events')
+                self.bot.unload_extension("Cogs.help")
             elif cog == "owner" or cog == "events" or "main":
                 self.bot.unload_extension('Cogs.' + cog)
                 await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Unloaded "Cogs.{cog}"'))
@@ -56,6 +58,7 @@ class owner(commands.Cog):
                 self.bot.reload_extension('Cogs.owner')
                 self.bot.reload_extension('Cogs.main')
                 self.bot.reload_extension('Cogs.Events')
+                self.bot.reload_extension("Cogs.help")
             elif cog == "owner" or cog == "events" or "main":
                 self.bot.reload_extension('Cogs.' + cog)
                 await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Reloaded "Cogs.{cog}"'))
@@ -79,48 +82,10 @@ class owner(commands.Cog):
     @commands.is_owner()
     async def eval_message(self, ctx, *, msg):
         try:
-            await ctx.send(f"{await eval(msg)}\uFEFF")
+            await ctx.send(f"{eval(msg)}\uFEFF")
         except Exception as err:
             await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Uh oh! I ran into an error trying to run this command:\n`{err}`'))
 
-
-    @commands.command(name='log')
-    @commands.is_owner()
-    async def log(self, ctx, *, msg = None):
-        if msg == None:
-            await ctx.send(embed=discord.Embed(color=discord.Color.green(), description='You need to provide a message to log!'))
-        else:
-            message = f"""INSERT INTO logs
-            (id)
-            VALUES
-            ('{msg}')"""
-            c.execute(message)
-            conn.commit()
-            await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Message `{msg}` logged.'))
-
-    @commands.command(name='fetch')
-    @commands.is_owner()
-    async def fetch(self, ctx, msg = None):
-        try:
-            if msg == None or msg == 'all':
-                ret = f"""SELECT * FROM logs"""
-
-                c.execute(ret)
-
-                rows = c.fetchall()
-
-                await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'{rows}'))
-
-            else:
-                ret = f"""SELECT * FROM logs"""
-
-                c.execute(ret)
-
-                rows = c.fetchall()
-
-                await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'{rows[int(msg)]}'))
-        except Error as err:
-            await ctx.send(embed=discord.Embed(color=discord.Color.green(), description='Uh oh! Something went wrong!'))
 
 
 

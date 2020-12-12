@@ -1,0 +1,132 @@
+{
+  "barbarian": {
+    "***Hit Dice***": "1d12\n",
+    "***1st level hit points***": "1d12 + Constitution modifier\n",
+    "***Higher level hit points***": "1d12 + Constitution modifier per level\n",
+    "***Armor***": "light armor, medium armor, shields\n",
+    "***Weapons***": "simple weapons, martial weapons\n",
+    "***Tools***": "None\n",
+    "***Saving Throws***": "Strength, Constitution\n",
+    "***Skills***": "Choose 2 from Animal Handling, Athletics, Intimidation, Nature, Perception, and Survival"
+  },
+  "bard": {
+    "***Hit Dice***": "1d8\n",
+    "***1st level hit points***": "8 + Constitution modifier\n",
+    "***Higher level hit points***": "1d8 + Constitution modifier per level\n",
+    "***Armor***": "light armor\n",
+    "***Weapons***": "simple weapons, hand crossbows, longswords, rapiers, shortswords\n",
+    "***Tools***": "three musical instruments of your choice\n",
+    "***Saving Throws***": "Dexterity, Charisma\n",
+    "***Skills***": "choose any 3"
+  },
+  "cleric": {
+    "***Hit Dice***": "1d8\n",
+    "***1st level hit points***": "8 + Constitution modifier\n",
+    "***Higher level hit points***": "1d8 + Constitution modifier per level\n",
+    "***Armor***": "light armor, medium armor, shields\n",
+    "***Weapons***": "simple weapons\n",
+    "***Tools***": "None\n",
+    "***Saving Throws***": "Wisdom, Charisma\n",
+    "***Skills***": "Choose 2 from History, Insight, Medicine, Persuasion, and Religion"
+  },
+  "druid": {
+    "***Hit Dice***": "1d8\n",
+    "***1st level hit points***": "8 + Constitution modifier\n",
+    "***Higher level hit points***": "1d8 + Constitution modifier per level\n",
+    "***Armor***": "light armor, medium armor, shields\n",
+    "***Weapons***": "clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears\n",
+    "***Tools***": "Herbalism Kit\n",
+    "***Saving Throws***": "Intelligence, Wisdom\n",
+    "***Skills***": "Choose 2 from Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, and Survival."
+  },
+  "fighter": {
+    "***Hit Dice***": "",
+    "***1st level hit points***": "",
+    "***Higher level hit points***": "",
+    "***Armor***": "",
+    "***Weapons***": "",
+    "***Tools***": "",
+    "***Saving Throws***": "",
+    "***Skills***": ""
+  },
+  "monk": {
+    "***Hit Dice***": "",
+    "***1st level hit points***": "",
+    "***Higher level hit points***": "",
+    "***Armor***": "",
+    "***Weapons***": "",
+    "***Tools***": "",
+    "***Saving Throws***": "",
+    "***Skills***": ""
+  },
+  "paladin": {
+    "***Hit Dice***": "",
+    "***1st level hit points***": "",
+    "***Higher level hit points***": "",
+    "***Armor***": "",
+    "***Weapons***": "",
+    "***Tools***": "",
+    "***Saving Throws***": "",
+    "***Skills***": ""
+  },
+  "ranger": {
+    "***Hit Dice***": "",
+    "***1st level hit points***": "",
+    "***Higher level hit points***": "",
+    "***Armor***": "",
+    "***Weapons***": "",
+    "***Tools***": "",
+    "***Saving Throws***": "",
+    "***Skills***": ""
+  },
+  "rogue": {
+    "***Hit Dice***": "",
+    "***1st level hit points***": "",
+    "***Higher level hit points***": "",
+    "***Armor***": "",
+    "***Weapons***": "",
+    "***Tools***": "",
+    "***Saving Throws***": "",
+    "***Skills***": ""
+  },
+  "sorcerer": {
+    "***Hit Dice***": "",
+    "***1st level hit points***": "",
+    "***Higher level hit points***": "",
+    "***Armor***": "",
+    "***Weapons***": "",
+    "***Tools***": "",
+    "***Saving Throws***": "",
+    "***Skills***": ""
+  },
+  "warlock": {
+    "***Hit Dice***": "",
+    "***1st level hit points***": "",
+    "***Higher level hit points***": "",
+    "***Armor***": "",
+    "***Weapons***": "",
+    "***Tools***": "",
+    "***Saving Throws***": "",
+    "***Skills***": ""
+  },
+  "wizard": {
+    "***Hit Dice***": "",
+    "***1st level hit points***": "",
+    "***Higher level hit points***": "",
+    "***Armor***": "",
+    "***Weapons***": "",
+    "***Tools***": "",
+    "***Saving Throws***": "",
+    "***Skills***": ""
+  },
+  "artificer": {
+    "***Hit Dice***": "",
+    "***1st level hit points***": "",
+    "***Higher level hit points***": "",
+    "***Armor***": "",
+    "***Weapons***": "",
+    "***Tools***": "",
+    "***Saving Throws***": "",
+    "***Skills***": ""
+  }
+}
