@@ -9,7 +9,7 @@ c = conn.cursor()
 
 bot = commands.Bot(command_prefix="d!")
 
-class Events(commands.Cog):
+class events(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -27,6 +27,17 @@ class Events(commands.Cog):
             await message.channel.send(embed=embed)
             await bot.process_commands(message)
 
+    @commands.Cog.listener()
+    async def on_guild_join(self, guild):
+         for channel in guild.text_channels:
+            if 'general' in channel.name:
+                embed = discord.Embed(color=discord.Color.green(), description='Use `d!help` to see a list of my commands!')
+
+                embed.set_author(name="Hey there, I'm Boblin!")
+                embed.set_footer(text='Boblin the Goblin#4756')
+
+                await channel.send(embed=embed)
+
 
 
 
@@ -35,4 +46,4 @@ class Events(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Events(bot))
+    bot.add_cog(events(bot))

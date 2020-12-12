@@ -22,7 +22,7 @@ with open('data/keys.json', 'r') as keys_file:
     bot.key = cj.load(keys_file)
 
 
-bot.load_extension("Cogs.Events")
+bot.load_extension("Cogs.events")
 bot.load_extension("Cogs.main")
 bot.load_extension("Cogs.owner")
 bot.load_extension("Cogs.uptime")
