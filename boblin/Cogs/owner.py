@@ -82,7 +82,7 @@ class owner(commands.Cog):
     @commands.is_owner()
     async def eval_message(self, ctx, *, msg):
         try:
-            await ctx.send(f"{eval(msg)}\uFEFF")
+            await ctx.send(f"{await eval(msg)}\uFEFF")
         except Exception as err:
             await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Uh oh! I ran into an error trying to run this command:\n`{err}`'))
 
