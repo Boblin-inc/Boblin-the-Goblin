@@ -55,6 +55,7 @@ class help(commands.Cog):
         otherhelp.add_field(name='invite', value=f'Invite Boblin to your server\n`{ctx.prefix}invite`')
         otherhelp.add_field(name='ping', value=f'Show the latency (response time) of the bot (ms)\n`{ctx.prefix}ping`')
         otherhelp.add_field(name='uptime', value=f'Check how long Boblin has been online for\n`{ctx.prefix}uptime`')
+        otherhelp.add_field(name='say', value=f'Make the bot say something\n`{ctx.prefix}say <message>`')
         otherhelp.add_field(name='More Coming Soon!', value='Boblin is still in development, so more commands will be added in the future!')
 
         otherhelp.set_footer(text='Boblin the Goblin#4756')
@@ -71,6 +72,7 @@ class help(commands.Cog):
         discord.Embed(title='Invite', color=discord.Color.green(), description='Invite Boblin to your server'),
         discord.Embed(title='Ping', color=discord.Color.green(), description='Show the latency (response time) of the bot (ms)'),
         discord.Embed(title='Uptime', color=discord.Color.green(), description='Check how long Boblin has been online for'),
+        discord.Embed(title='Say', color=discord.Color.green(), description='Make the bot say something'),
         discord.Embed(title='More Coming Soon!', color=discord.Color.green(), description='Boblin is still in development, so more commands will be added in the future!')]
 
         paginator = BotEmbedPaginator(ctx, embeds)

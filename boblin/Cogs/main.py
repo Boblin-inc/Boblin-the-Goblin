@@ -164,6 +164,14 @@ class main(commands.Cog):
                 await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Your argument must be put together (for example: `3d20` as opposed to `3 d20`)'))
 
 
+    @commands.command(name='say')
+    async def say(selfsay, ctx, *,something,pass_context=True):
+        if something is None:
+            await ctx.send(embed=discord.Embed(color=discord.Color.green(), description="You need to enter something for me to say!"))
+            return
+
+        await ctx.send(f"{something}")
+        await discord.Message.delete(ctx.message)
 
 
 def setup(bot):

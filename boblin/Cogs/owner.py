@@ -13,15 +13,8 @@ class owner(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='say', help=' - make me say something')
-    async def say(selfsay, ctx, *,something,pass_context=True):
-        if something is None:
-            await ctx.send("What do you want to say?")
-            return
 
-        await ctx.send(f"{something}")
-        await discord.Message.delete(ctx.message)
-        #delete this ^^^
+        
 
     @commands.command(name='load')
     @commands.is_owner()
@@ -32,7 +25,7 @@ class owner(commands.Cog):
                 await ctx.send(embed=discord.Embed(color=discord.Color.green(), description='Loaded all cogs'))
                 self.bot.load_extension('Cogs.owner')
                 self.bot.load_extension('Cogs.main')
-                self.bot.load_extension('Cogs.Events')
+                self.bot.load_extension('Cogs.events')
                 self.bot.load_extension("Cogs.help")
             elif cog == "owner" or cog == "events" or "main":
                 self.bot.load_extension('Cogs.' + cog)
@@ -50,7 +43,7 @@ class owner(commands.Cog):
                 await ctx.send(embed=discord.Embed(color=discord.Color.green(), description='Unloaded all cogs'))
                 self.bot.unload_extension('Cogs.owner')
                 self.bot.unload_extension('Cogs.main')
-                self.bot.unload_extension('Cogs.Events')
+                self.bot.unload_extension('Cogs.events')
                 self.bot.unload_extension("Cogs.help")
             elif cog == "owner" or cog == "events" or "main":
                 self.bot.unload_extension('Cogs.' + cog)
@@ -68,7 +61,7 @@ class owner(commands.Cog):
                 await ctx.send(embed=discord.Embed(color=discord.Color.green(), description='Reloaded all cogs'))
                 self.bot.reload_extension('Cogs.owner')
                 self.bot.reload_extension('Cogs.main')
-                self.bot.reload_extension('Cogs.Events')
+                self.bot.reload_extension('Cogs.events')
                 self.bot.reload_extension("Cogs.help")
             elif cog == "owner" or cog == "events" or "main":
                 self.bot.reload_extension('Cogs.' + cog)
@@ -99,7 +92,7 @@ class owner(commands.Cog):
 
     @commands.command(name="aeval", aliases=["awaiteval"])
     @commands.is_owner()
-    async def eval_message(self, ctx, *, msg):
+    async def await_eval(self, ctx, *, msg):
         try:
             await ctx.send(f"{await eval(msg)}\uFEFF")
         except Exception as err:
