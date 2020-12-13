@@ -15,7 +15,8 @@ class events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        activity = discord.Game(name="D&D 5e", type=3)
+        guildcount = len(self.bot.guilds)
+        activity = discord.Game(name=f"D&D 5e in {guildcount} servers", type=3)
         await self.bot.change_presence(status=discord.Status.do_not_disturb, activity=activity)
 
     @commands.Cog.listener()

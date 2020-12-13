@@ -3,6 +3,7 @@ from discord.ext import commands
 import os
 import sqlite3
 from sqlite3 import Error
+import arrow
 conn = sqlite3.connect(r'C:\Users\trey\Documents\atom projects\Bots\Boblin-the-Goblin\boblin\data\boblindata.db')
 c = conn.cursor()
 
@@ -11,6 +12,16 @@ bot = commands.Bot(command_prefix='d!')
 class owner(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+
+    @commands.command(name='say', help=' - make me say something')
+    async def say(selfsay, ctx, *,something,pass_context=True):
+        if something is None:
+            await ctx.send("What do you want to say?")
+            return
+
+        await ctx.send(f"{something}")
+        await discord.Message.delete(ctx.message)
+        #delete this ^^^
 
     @commands.command(name='load')
     @commands.is_owner()
@@ -25,7 +36,7 @@ class owner(commands.Cog):
                 self.bot.load_extension("Cogs.help")
             elif cog == "owner" or cog == "events" or "main":
                 self.bot.load_extension('Cogs.' + cog)
-                await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Loaded "Cogs.{cog}"'))
+                await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Loaded "cogs.{cog}"'))
         except Exception as err:
             await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Uh oh! I ran into an error trying to run this command:\n`{err}`'))
 
@@ -43,7 +54,7 @@ class owner(commands.Cog):
                 self.bot.unload_extension("Cogs.help")
             elif cog == "owner" or cog == "events" or "main":
                 self.bot.unload_extension('Cogs.' + cog)
-                await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Unloaded "Cogs.{cog}"'))
+                await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Unloaded "cogs.{cog}"'))
         except Exception as err:
             await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Uh oh! I ran into an error trying to run this command:\n`{err}`'))
 
@@ -61,7 +72,7 @@ class owner(commands.Cog):
                 self.bot.reload_extension("Cogs.help")
             elif cog == "owner" or cog == "events" or "main":
                 self.bot.reload_extension('Cogs.' + cog)
-                await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Reloaded "Cogs.{cog}"'))
+                await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Reloaded "cogs.{cog}"'))
         except Exception as err:
             await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Uh oh! I ran into an error trying to run this command:\n`{err}`'))
 
