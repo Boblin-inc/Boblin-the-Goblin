@@ -88,10 +88,8 @@ class help(commands.Cog):
 
         owner.add_field(name='load', value=f'Load specified cog\n`{ctx.prefix}load <cog (optional>)`')
         owner.add_field(name='unload', value=f'Unload specified cog\n`{ctx.prefix}unload <cog (optional)>.`')
-        owner.add_field(name='\uFEFF', value='\uFEFF')
         owner.add_field(name='reload', value=f'Reload specified cog\n`{ctx.prefix}reload <cog (optional)>`')
         owner.add_field(name='gitpull', value=f'Pulls most recent version from GitHub\n`{ctx.prefix}gitpull`')
-        owner.add_field(name='\uFEFF', value='\uFEFF')
         owner.add_field(name='eval', value=f'Executes the inputted code\n`{ctx.prefix}eval <code>`')
         owner.add_field(name='aeval', value=f'Awaits and executes inputted code\n`{ctx.prefix}aeval <code>`')
 
