@@ -39,7 +39,7 @@ class uptime(commands.Cog):
                                                description="Boblin has been online for " + str(days) + " " + dd + ", " + str(
                                                    hours) + " " + hh + ", and " + str(minutes) + " " + mm + ".")
             embed.set_author(name="Uptime")
-            embed.set_footer(text="Boblin the Goblin#4746")
+            embed.set_footer(text="Boblin the Goblin#4756")
             await ctx.send(embed=embed)
 
 def setup(bot):

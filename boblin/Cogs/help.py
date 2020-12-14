@@ -93,6 +93,7 @@ class help(commands.Cog):
         owner.add_field(name='gitpull', value=f'Pulls most recent version from GitHub\n`{ctx.prefix}gitpull`')
         owner.add_field(name='\uFEFF', value='\uFEFF')
         owner.add_field(name='eval', value=f'Executes the inputted code\n`{ctx.prefix}eval <code>`')
+        owner.add_field(name='aeval', value=f'Awaits and executes inputted code\n`{ctx.prefix}aeval <code>`')
 
         owner.set_footer(text='Boblin the Goblin#4756')
 

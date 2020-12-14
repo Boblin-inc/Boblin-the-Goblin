@@ -144,7 +144,7 @@ class main(commands.Cog):
 
         embed.set_author(name="Pong!")
 
-        embed.set_footer(text='Boblin the Goblin#4746')
+        embed.set_footer(text='Boblin the Goblin#4756')
 
         await ctx.send(embed=embed)
 

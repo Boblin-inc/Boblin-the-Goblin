@@ -18,6 +18,9 @@ bot = commands.Bot(command_prefix='d!', help_command=None)
 
 
 
+
+
+
 with open('data/keys.json', 'r') as keys_file:
     bot.key = cj.load(keys_file)
 
