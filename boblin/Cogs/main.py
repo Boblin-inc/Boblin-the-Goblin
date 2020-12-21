@@ -12,6 +12,9 @@ conn = sqlite3.connect(r'C:\Users\trey\Documents\atom projects\Bots\Boblin-the-G
 c = conn.cursor()
 bot = commands.Bot(command_prefix="d!")
 
+
+
+
 class main(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -172,6 +175,20 @@ class main(commands.Cog):
 
         await ctx.send(f"{something}")
         await discord.Message.delete(ctx.message)
+
+    @commands.command(name='info')
+    async def info(self, ctx):
+        embed=discord.Embed(color=discord.Color.green())
+        embed.set_author(name='Bot Info')
+        embed.set_footer(text='Created by Emerald#8617 | Boblin the Goblin#4756')
+
+        embed.add_field(name='Command Prefix', value='d!')
+        embed.add_field(name='Total Guilds', value=f'{len(self.bot.guilds)}')
+        embed.add_field(name='Total Users', value=f'{len(self.bot.users)}')
+        embed.add_field(name='GitHub Repository', value='[**Click Here**](https://github.com/Boblin-inc/Boblin-the-Goblin)')
+        embed.add_field(name='top.gg page', value='[**Click Here**](https://top.gg/bot/778773013352546354)')
+
+        await ctx.send(embed=embed)
 
 
 def setup(bot):
