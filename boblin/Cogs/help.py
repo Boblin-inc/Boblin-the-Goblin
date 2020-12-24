@@ -57,6 +57,7 @@ class help(commands.Cog):
         otherhelp.add_field(name='uptime', value=f'Check how long Boblin has been online for\n`{ctx.prefix}uptime`')
         otherhelp.add_field(name='say', value=f'Make the bot say something\n`{ctx.prefix}say <message>`')
         otherhelp.add_field(name='info', value=f'Bot info/stats\n`{ctx.prefix}info`')
+        otherhelp.add_field(name='vote', value=f'Vote for Boblin on top.gg\n`{ctx.prefix}vote`')
         otherhelp.add_field(name='More Coming Soon!', value='Boblin is still in development, so more commands will be added in the future!')
 
         otherhelp.set_footer(text='Boblin the Goblin#4756')

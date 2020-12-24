@@ -14,7 +14,7 @@ class owner(commands.Cog):
         self.bot = bot
 
 
-        
+
 
     @commands.command(name='load')
     @commands.is_owner()
@@ -26,8 +26,9 @@ class owner(commands.Cog):
                 self.bot.load_extension('Cogs.owner')
                 self.bot.load_extension('Cogs.main')
                 self.bot.load_extension('Cogs.events')
-                self.bot.load_extension("Cogs.help")
-            elif cog == "owner" or cog == "events" or "main":
+                self.bot.load_extension('Cogs.help')
+                self.bot.load_extension('Cogs.embeds')
+            elif cog == "owner" or cog == "events" or "main" or cog == "help" or cog == 'embeds':
                 self.bot.load_extension('Cogs.' + cog)
                 await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Loaded "cogs.{cog}"'))
         except Exception as err:
@@ -44,8 +45,9 @@ class owner(commands.Cog):
                 self.bot.unload_extension('Cogs.owner')
                 self.bot.unload_extension('Cogs.main')
                 self.bot.unload_extension('Cogs.events')
-                self.bot.unload_extension("Cogs.help")
-            elif cog == "owner" or cog == "events" or "main":
+                self.bot.unload_extension('Cogs.help')
+                self.bot.unload_extension('Cogs.embeds')
+            elif cog == "owner" or cog == "events" or "main" or cog == "help" or cog == "embeds":
                 self.bot.unload_extension('Cogs.' + cog)
                 await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Unloaded "cogs.{cog}"'))
         except Exception as err:
@@ -62,8 +64,9 @@ class owner(commands.Cog):
                 self.bot.reload_extension('Cogs.owner')
                 self.bot.reload_extension('Cogs.main')
                 self.bot.reload_extension('Cogs.events')
-                self.bot.reload_extension("Cogs.help")
-            elif cog == "owner" or cog == "events" or "main":
+                self.bot.reload_extension('Cogs.help')
+                self.bot.reload_extension('Cogs.embeds')
+            elif cog == "owner" or cog == "events" or "main" or cog == "help" or cog == "embeds":
                 self.bot.reload_extension('Cogs.' + cog)
                 await ctx.send(embed=discord.Embed(color=discord.Color.green(), description=f'Reloaded "cogs.{cog}"'))
         except Exception as err:
