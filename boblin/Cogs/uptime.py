@@ -10,9 +10,6 @@ class uptime(commands.Cog):
         self.bot = bot
 
         self.g = arrow.utcnow()
-        self.db = self.bot.get_cog("Database")
-
-
 
     @commands.command(name="uptime", aliases=['up'])
     async def get_uptime(self, ctx):

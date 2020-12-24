@@ -22,45 +22,10 @@ class main(commands.Cog):
     @commands.command(name='race')
     async def race(self, ctx, *, race = 'All'):
         race = race.lower()
+        embs = self.bot.get_cog('embeds')
         if race == 'all':
 
-            embeds = [discord.Embed(title="Dragonborn", color=discord.Color.green(), description="d!race dragonborn"),
-            discord.Embed(title="Dwarf", color=discord.Color.green(), description="d!race dwarf"),
-            discord.Embed(title='Elf', color=discord.Color.green(), description="d!race elf"),
-            discord.Embed(title='Gnome', color=discord.Color.green(), description="d!race gnome"),
-            discord.Embed(title='Half-Elf', color=discord.Color.green(), description="d!race half-elf"),
-            discord.Embed(title='Halfling', color=discord.Color.green(), description="d!race halfling"),
-            discord.Embed(title='Half-Orc', color=discord.Color.green(), description="d!race half-orc"),
-            discord.Embed(title='Human', color=discord.Color.green(), description="d!race human"),
-            discord.Embed(title='Tiefling', color=discord.Color.green(), description="d!race tiefling"),
-            discord.Embed(title='Leonin', color=discord.Color.green(), description="d!race leonin"),
-            discord.Embed(title='Satyr', color=discord.Color.green(), description="d!race satyr"),
-            discord.Embed(title='Aarakocra', color=discord.Color.green(), description="d!race aarakocra"),
-            discord.Embed(title='Genasi', color=discord.Color.green(), description="d!race genasi"),
-            discord.Embed(title='Goliath', color=discord.Color.green(), description="d!race goliath"),
-            discord.Embed(title='Aasimar', color=discord.Color.green(), description="d!race aasimar"),
-            discord.Embed(title='Bugbear', color=discord.Color.green(), description="d!race bugbear"),
-            discord.Embed(title='Firbolg', color=discord.Color.green(), description="d!race firbolg"),
-            discord.Embed(title='Goblin', color=discord.Color.green(), description="d!race goblin"),
-            discord.Embed(title='Hobgoblin', color=discord.Color.green(), description="d!race hobgoblin"),
-            discord.Embed(title='Kenku', color=discord.Color.green(), description="d!race kenku"),
-            discord.Embed(title='Kobold', color=discord.Color.green(), description="d!race kobold"),
-            discord.Embed(title='Lizardfolk', color=discord.Color.green(), description="d!race lizardfolk"),
-            discord.Embed(title='Orc', color=discord.Color.green(), description="d!race orc"),
-            discord.Embed(title='Tabaxi', color=discord.Color.green(), description="d!race tabaxi"),
-            discord.Embed(title='Triton', color=discord.Color.green(), description="d!race triton"),
-            discord.Embed(title='Yuan-ti Pureblood', color=discord.Color.green(), description="d!race yuan-ti pureblood"),
-            discord.Embed(title='Changeling', color=discord.Color.green(), description="d!race changeling"),
-            discord.Embed(title='Kalashtar', color=discord.Color.green(), description="d!race kalashtar"),
-            discord.Embed(title='Shifter', color=discord.Color.green(), description="d!race shifter"),
-            discord.Embed(title='Warforged', color=discord.Color.green(), description="d!race warforged"),
-            discord.Embed(title='Gith', color=discord.Color.green(), description="d!race gith"),
-            discord.Embed(title='Centaur', color=discord.Color.green(), description="d!race centaur"),
-            discord.Embed(title='Loxodon', color=discord.Color.green(), description="d!race loxodon"),
-            discord.Embed(title='Minotaur', color=discord.Color.green(), description="d!race minotaur"),
-            discord.Embed(title='Simic Hybrid', color=discord.Color.green(), description="d!race simic hybrid"),
-            discord.Embed(title='Vedalken', color=discord.Color.green(), description="d!race vedalken"),
-            discord.Embed(title='Verdan', color=discord.Color.green(), description="d!race verdan")]
+            embeds = embs.races
 
             paginator = BotEmbedPaginator(ctx, embeds)
             await paginator.run()
@@ -89,22 +54,11 @@ class main(commands.Cog):
 
     @commands.command(name='class')
     async def classes(self, ctx, *, classes = 'All'):
+        embs = self.bot.get_cog('embeds')
         classes = classes.lower()
         if classes == 'all':
-            embeds = [
-            discord.Embed(title='Barbarian', color=discord.Color.green(), description='d!class barbarian'),
-            discord.Embed(title='Bard', color=discord.Color.green(), description='d!class bard'),
-            discord.Embed(title='Cleric', color=discord.Color.green(), description='d!class cleric'),
-            discord.Embed(title='Druid', color=discord.Color.green(), description='d!class druid'),
-            discord.Embed(title='Fighter', color=discord.Color.green(), description='d!class fighter'),
-            discord.Embed(title='Monk', color=discord.Color.green(), description='d!class monk'),
-            discord.Embed(title='Paladin', color=discord.Color.green(), description='d!class paladin'),
-            discord.Embed(title='Ranger', color=discord.Color.green(), description='d!class ranger'),
-            discord.Embed(title='Rogue', color=discord.Color.green(), description='d!class rogue'),
-            discord.Embed(title='Sorcerer', color=discord.Color.green(), description='d!class sorcerer'),
-            discord.Embed(title='Warlock', color=discord.Color.green(), description='d!class warlock'),
-            discord.Embed(title='Wizard', color=discord.Color.green(), description='d!class wizard'),
-            discord.Embed(title='Artificer', color=discord.Color.green(), description='d!class artificer'),]
+
+            embeds = embs.classes
 
             paginator = BotEmbedPaginator(ctx, embeds)
             await paginator.run()
@@ -126,6 +80,16 @@ class main(commands.Cog):
                     break
 
                 await ctx.send(embed=embed)
+
+    @commands.command(name='spells')
+    async def spells(self, ctx, *, spells='All'):
+        spells = spells.lower()
+        embs = self.bot.get_cog('embeds')
+        paginator = BotEmbedPaginator(ctx, embs.allspells)
+        await paginator.run()
+        #finish later
+
+
 
 
     @commands.command(name='invite')
@@ -189,6 +153,8 @@ class main(commands.Cog):
         embed.add_field(name='top.gg page', value='[**Click Here**](https://top.gg/bot/778773013352546354)')
 
         await ctx.send(embed=embed)
+
+
 
 
 def setup(bot):

@@ -39,12 +39,5 @@ class events(commands.Cog):
 
                 await channel.send(embed=embed)
 
-
-
-
-
-
-
-
 def setup(bot):
     bot.add_cog(events(bot))
