@@ -4,12 +4,13 @@ import classyjson as cj
 import sqlite3
 from sqlite3 import Error
 
+
 conn = sqlite3.connect(r'C:\Users\trey\Documents\atom projects\Bots\Boblin-the-Goblin\boblin\data\boblindata.db')
 c = conn.cursor()
 
 #todo
 #campaign ideas
-#classes
+
 
 
 

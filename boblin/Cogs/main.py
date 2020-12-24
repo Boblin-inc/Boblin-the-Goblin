@@ -8,6 +8,7 @@ import random
 from random import randint
 import sqlite3
 from sqlite3 import Error
+import asyncio
 conn = sqlite3.connect(r'C:\Users\trey\Documents\atom projects\Bots\Boblin-the-Goblin\boblin\data\boblindata.db')
 c = conn.cursor()
 bot = commands.Bot(command_prefix="d!")
@@ -153,6 +154,18 @@ class main(commands.Cog):
         embed.add_field(name='top.gg page', value='[**Click Here**](https://top.gg/bot/778773013352546354)')
 
         await ctx.send(embed=embed)
+
+    @commands.command(name='vote')
+    async def vote(self, ctx):
+        vote = discord.Embed(color=discord.Color.green())
+
+        vote.set_author(name='Vote for Boblin!')
+        vote.add_field(name='Vote for Boblin on top.gg to support the bot!', value='[**Click Here!**](https://top.gg/bot/778773013352546354/vote)')
+        vote.set_footer(text='Created by Emerald#8617 | Boblin the Goblin#4756')
+
+        await ctx.send(embed=vote)
+
+
 
 
 
