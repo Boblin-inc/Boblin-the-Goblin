@@ -20,6 +20,7 @@ class main(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+
     @commands.command(name='race')
     async def race(self, ctx, *, race = 'All'):
         race = race.lower()
@@ -166,7 +167,28 @@ class main(commands.Cog):
         await ctx.send(embed=vote)
 
 
+    @commands.command(name='guild', aliases=['guildinfo', 'gi', 'serverinfo', 'si', 'server'])
+    async def guild_info(self, ctx):
+        time = arrow.get(discord.utils.snowflake_time(ctx.guild.id))
+        time = time.format('MMM D, YYYY') + ', ' + time.humanize()
 
+        embed=discord.Embed(color=discord.Color.green(), description=f'`Created on {time}`')
+
+        embed.set_author(name=f'Info for {ctx.guild.name}', icon_url=ctx.guild.icon_url)
+
+        embed.add_field(name='Owner', value=f'{ctx.guild.owner.mention}')
+        embed.add_field(name='Guild ID', value=f'`{ctx.guild.id}`')
+        embed.add_field(name='Members', value=f'`{ctx.guild.member_count}`')
+        embed.add_field(name='Roles', value=f'`{len(ctx.guild.roles)}`')
+        embed.add_field(name='Text Channels', value=f'`{len(ctx.guild.text_channels)}`')
+        embed.add_field(name='Voice Channels', value=f'`{len(ctx.guild.voice_channels)}`')
+        embed.add_field(name='Categories', value=f'`{len(ctx.guild.categories)}`')
+        embed.add_field(name='emojis', value=f'`{len(ctx.guild.emojis)}`')
+        embed.add_field(name='bans', value=f'`{len(await ctx.guild.bans())}`')
+
+        embed.set_footer(text='Created by Emerald#8617 | Boblin the Goblin#4756')
+
+        await ctx.send(embed=embed)
 
 
 
